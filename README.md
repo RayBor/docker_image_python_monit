@@ -14,3 +14,5 @@ Monit will launch the `main.py` and monitor it with the name set in the `Dockerf
   
 To access it, go to `localhost:2812` on your web browser.  
 The script may take a few moments to appear as running in Monit, but it still starts immediately.  
+
+If you wish to manage several scripts, you will need to create a script wrapper for every script, and add a "check process" order for them in the `conf.d/` folder.  
