@@ -1,6 +1,8 @@
 #!/bin/bash
 
-PIDFILE=/var/run/script_wrapper.pid
+SCRIPT_NAME='example'
+
+PIDFILE=/var/run/$SCRIPT_NAME.pid
 
 case $1 in
    start)
@@ -15,6 +17,6 @@ case $1 in
       rm ${PIDFILE}
    ;;
    *)
-      echo "usage: script_wrapper {start|stop}" ;;
+      echo "Usage: $SCRIPT_NAME {start|stop}" ;;
 esac
 exit 0

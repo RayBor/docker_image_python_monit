@@ -23,16 +23,18 @@ RUN apt-get install -y \
 
 RUN apt-get install -y python-pip
 
+ENV SCRIPT_NAME my_python_script
+
 RUN mkdir scripts
 COPY scripts /scripts
-COPY script_wrapper /etc/init.d/
+COPY script_wrapper /etc/init.d/$SCRIPT_NAME
 
-RUN chmod +x /etc/init.d/script_wrapper
+RUN chmod +x /etc/init.d/$SCRIPT_NAME
+
+RUN sed -i "s/SCRIPT_NAME/$SCRIPT_NAME/g" /etc/monit/conf.d/* /etc/init.d/$SCRIPT_NAME
 
 RUN pip install -r /scripts/requirements.txt
 
 EXPOSE 2812
-
-#CMD python /scripts/main.py
 
 CMD monit -I

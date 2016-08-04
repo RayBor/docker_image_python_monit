@@ -1,3 +1,3 @@
-check process script_wrapper with pidfile /var/run/script_wrapper.pid
-    start program = "/etc/init.d/script_wrapper start"
-    stop program = "/etc/init.d/script_wrapper stop"
+check process SCRIPT_NAME with pidfile /var/run/SCRIPT_NAME.pid
+    start program = "/etc/init.d/SCRIPT_NAME start"
+    stop program = "/etc/init.d/SCRIPT_NAME stop"
