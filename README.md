@@ -6,6 +6,8 @@ Clone the repository, and add your python script(s) in the `scripts/` folder.
 By default, Monit will look for a `main.py` file, but you can change it in the `script_wrapper`.  
 If you need pip dependencies, put them in the `requirements.txt` file.  
 
+In the `Dockerfile`, replace the `SCRIPT_NAME` environment variable with the script name you want to see in Monit.  
+
 Then build the image :  
 `docker build -t me/my_monitored_python_script .`
 
