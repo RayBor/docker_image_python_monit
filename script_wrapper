@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PIDFILE=/var/run/script_wrapper.pid
+
+case $1 in
+   start)
+       # Launch your program as a detached process
+       python /scripts/main.py &>/dev/null &
+       # Get its PID and store it
+       echo $! > ${PIDFILE}
+   ;;
+   stop)
+      kill `cat ${PIDFILE}`
+      # Now that it's killed, don't forget to remove the PID file
+      rm ${PIDFILE}
+   ;;
+   *)
+      echo "usage: script_wrapper {start|stop}" ;;
+esac
+exit 0
