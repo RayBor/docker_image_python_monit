@@ -1,6 +1,6 @@
 ## Launch and monitor a python script with Monit on Docker
 
-Clone the repository, and add your script in the scripts/ folder.  
+Clone the repository, and add your python script(s) in the `scripts/` folder.  
 By default, Monit will look for a `main.py` file, but you can change it in the `script_wrapper`.  
 If you need pip dependencies, put them in the `requirements.txt` file.  
 
